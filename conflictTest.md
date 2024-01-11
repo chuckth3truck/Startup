@@ -1,2 +1,2 @@
 This is a conflict conflicting with another conflict in a conflicting way
-here is the final version
+here is the final version just kidding
