@@ -2,7 +2,7 @@
 
 Here is a Link to this repo's README.md file
 
-Startup/README.md
+/README.md
 
 ## Assignment Notes
 ### Github Assignment
