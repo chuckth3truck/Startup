@@ -1,6 +1,6 @@
 # CS-260 Class notes
 
-Here is a Link to this repo's README.md file(/README.md)
+[Here is a Link to this repo's README.md file](/README.md)
 
 ## Assignment Notes
 ### Github Assignment
