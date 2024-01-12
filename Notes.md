@@ -45,3 +45,5 @@ Startup Application
 -stretch yourself a little bit. 
 
 -use simon as a map
+
+-100 lines of code per deliverable. 
