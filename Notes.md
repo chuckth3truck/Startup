@@ -7,3 +7,7 @@
 I Got practice committing code to git and then pushing it to github
 
 I also got expereince correcting merge conflicts 
+
+
+## Class Notes
+### Asking Question
