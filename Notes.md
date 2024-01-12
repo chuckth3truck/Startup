@@ -11,3 +11,15 @@ I also got expereince correcting merge conflicts
 
 ## Class Notes
 ### Asking Question
+Who should you ask questions of?
+    - Yourself
+        -work on it youself
+        -research
+        -formulate exactl what you do know an what you don't
+    -The orcale
+    -peers
+        -talk to other students
+        -get together and work
+    -Teaching Assistant
+        -when in doudt 
+    -INstructor
