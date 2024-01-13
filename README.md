@@ -8,3 +8,12 @@ Imagine with me for second, imagine you are stuck in some remote part of the wor
 
 ### KEY FEATURES
 
+* Secure login with HTTPS
+* Ability to input quesitons and subjects into the queue
+* ability for the helper to see:
+    * the persons name
+    * their question and the subect of the question
+    * how many people are in the queue
+    * How many people have been helped
+* the amount fo people that have been helped wil be persistantly stores
+* ability for helpers to accepts or decline questions
