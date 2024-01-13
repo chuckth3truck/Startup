@@ -5,3 +5,6 @@ Imagine with me for second, imagine you are stuck in some remote part of the wor
 
 ### DESIGN
 ![Here is a picture of the basic design for my web paige, for the both the helpee and helper view.](/DesignDeliverable.png)
+
+### KEY FEATURES
+
