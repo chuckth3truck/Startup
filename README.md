@@ -16,5 +16,15 @@ Imagine with me for second, imagine you are stuck in some remote part of the wor
     * how many people are in the queue
     * How many people have been helped
 * ability for helpee to see their postion in the queue
-* the amount fo people that have been helped wil be persistantly stores
+* the amount of people that have been helped wil be persistantly stores
 * ability for helpers to accepts or decline questions
+
+### TECHNOLOGIES
+
+* HTML
+* CSS
+* JavaScript
+* service
+* DataBase and Login
+* Websocket
+* React
