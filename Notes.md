@@ -47,3 +47,16 @@ I also got expereince correcting merge conflicts
     * use simon as a map
 
     * 100 lines of code per deliverable. 
+
+### A brief History of Nearly Everything
+* in the beginning the internet was just a connection of computers networked together.
+* and it all changed when a man named Tim Berners-Lee came on the seen
+    * he created HTTP, URL, HTML and the frist webb browser. 
+* Than came a man named Hakon Wium Lie (Scandinavian)
+    * created CSS and created the ability for the creator of the web app to set the parameters of how the paige looked
+    Instead of the web Browser. 
+* than came Brandon Eich
+    * creator of JavaSript 
+    * "Always bet on JS"
+    
+
