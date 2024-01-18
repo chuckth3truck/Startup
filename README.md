@@ -21,10 +21,17 @@ Imagine with me for second, imagine you are stuck in some remote part of the wor
 
 ### TECHNOLOGIES
 
-* HTML
-* CSS
-* JavaScript
-* service
-* DataBase and Login
-* Websocket
-* React
+* HTML: Use HTML for basic structure, three HTML paiges:
+    1. for login
+    2. for helper view
+    3. for helpee view
+* CSS: Making the application look good and inuitive to use
+* JavaScript: Login, question submit, accept or decline question
+* service: Proived functionality for 
+    * login
+    * submitting questions
+    * retrieving questions
+* DataBase and Login: Store users, questions, and permissions in database. Helper ID's stored in Database and you can only 
+answer question if you are a helper
+* Websocket: notify helper when there is a question for them
+* React: Application will use react at the final stage
