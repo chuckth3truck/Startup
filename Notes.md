@@ -58,5 +58,9 @@ I also got expereince correcting merge conflicts
 * than came Brandon Eich
     * creator of JavaSript 
     * "Always bet on JS"
+
+### Stack, EC2 & Route 53
+* Technology Stack - (# tier Architecture)
+
     
 
