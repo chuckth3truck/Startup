@@ -62,5 +62,5 @@ I also got expereince correcting merge conflicts
 ### Stack, EC2 & Route 53
 * Technology Stack - (# tier Architecture)
 
-    
-
+### Caddy HTTPS, TLS, and Certificates
+* Caddy 
