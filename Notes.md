@@ -64,3 +64,6 @@ I also got expereince correcting merge conflicts
 
 ### Caddy HTTPS, TLS, and Certificates
 * Caddy 
+### HTML
+* all HTML docs are a tree, it has a natural inheritance structure (the Document Object Modul or DOM)
+
