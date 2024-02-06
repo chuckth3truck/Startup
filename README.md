@@ -35,3 +35,11 @@ Imagine with me for second, imagine you are stuck in some remote part of the wor
 answer question if you are a helper
 * Websocket: notify helper when there is a question for them
 * React: Application will use react at the final stage
+
+## HTML Deliverable 
+* HTML Pages - built three HTML pages that represent th login, the queue, and the "ask a question page"
+* Links - login links to question page, there are thinks to the other pages
+* text - the question boxes have a textual description
+* Img - I wasn't sure exactly what to do here. I added a picture to my queue page but i wasn't sure what it should be of. . . . so its a rock idk i hope you like it.
+* Login/DB - login boxes and submit button are there, the questions in the queue represent stuff pulled from the database.
+* WebSocket - total tally of people helped in queue page represents realtime tally. 
