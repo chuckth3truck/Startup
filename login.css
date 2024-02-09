@@ -3,4 +3,21 @@
     margin: 40px;
     padding: 20px;
     background-color: rgb(11, 7, 114);
+
+    text-align: center;
+
+    border-radius: 20px;
+}
+.login-border{
+    background-color: rgb(183, 183, 183);
+    margin: 20px;
+    border-radius: 100px;
+    
+}
+label{
+    background-color: white;
+    color: black;
+    font: large;
+    font-family: fantasy;
+    border-radius: 10px;
 }
