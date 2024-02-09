@@ -38,7 +38,7 @@ html {
   }
 
   main {
-    flex: 1 55vh;
+    flex: 1 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -51,6 +51,7 @@ html {
     flex: 0 40px;
     background-color: rgba(0, 0, 0);
     color: white;
+    font-size: .7em;
     
     display: flex;
     flex-direction: column;
