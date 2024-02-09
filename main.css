@@ -11,7 +11,7 @@ html {
 
   header {
     flex: 0 40px;
-    background-color: rgb(29, 79, 217);
+    background-color: rgb(11, 7, 114);
 
   }
 
@@ -30,11 +30,11 @@ html {
 
   h1{
     text-align: center;
-    background-color: rgba(4, 0, 255, 0.882);
+    /* background-color: rgba(4, 0, 255, 0.882); */
     color: white;
-    padding: 30px;
-    margin: 5px;
-    border-radius: 30px;
+    /* padding: 10px; */
+    /* margin: 5px; */
+    /* border-radius: 30px; */
   }
 
   main {
