@@ -22,6 +22,13 @@ html {
     align-items: center;
   }
 
+.login{
+    color: white;
+    margin: 40px;
+    padding: 20px;
+    background-color: rgb(11, 7, 114);
+}
+
   div{
     padding: 10px;
     font-size: 1.5em;
@@ -52,7 +59,7 @@ html {
     background-color: rgba(0, 0, 0);
     color: white;
     font-size: .7em;
-    
+
     display: flex;
     flex-direction: column;
     justify-content: left;
