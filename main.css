@@ -1,0 +1,28 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-width: 375px;
+  }
+
+  header {
+    flex: 0 80px;
+  }
+
+  h1{
+    text-align: center;
+    background-color: rgba(4, 0, 255, 0.882);
+    padding: 50px;
+    border-radius: 20px;
+  }
+
+  main {
+    flex: 1 70vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  footer {
+    flex: 0 30px;
+  }
