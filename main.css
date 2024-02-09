@@ -1,11 +1,17 @@
-body {
+html {
+    height: 100%;
+  }
+  
+  body {
+    margin: 0;
     display: flex;
     flex-direction: column;
-    min-width: 375px;
+    height: 100%;
   }
 
   header {
-    flex: 0 80px;
+    flex: 0 40px;
+    background-color: rgb(29, 79, 217);
 
   }
 
@@ -25,8 +31,10 @@ body {
   h1{
     text-align: center;
     background-color: rgba(4, 0, 255, 0.882);
-    padding: 50px;
-    border-radius: 20px;
+    color: white;
+    padding: 30px;
+    margin: 5px;
+    border-radius: 30px;
   }
 
   main {
@@ -40,5 +48,16 @@ body {
   }
   
   footer {
-    flex: 0 30px;
+    flex: 0 40px;
+    background-color: rgba(0, 0, 0);
+    color: white;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    align-items: center;
   }
+
+a{
+    color: white;
+}
