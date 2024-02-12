@@ -1,0 +1,8 @@
+.question-box{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    text-align: center;
+    background-color: white;
+}

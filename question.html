@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ask A Question</title>
     <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="question.css" />
 </head>
 <body>
     <header>
@@ -18,21 +19,24 @@
     </header>
 
     <main>
+
         <h3>YOU HAVE QUESTIONS, WE HAVE ANSWERS</h3>
+        <div class="question-box">
         <label for="text">Subject </label>
-        <input type="text" id="text" name="varText" placeholder="" required pattern="[Aa].*" />
+        <input type="text" id="subject" name="varText" placeholder="" required pattern="[Aa].*" />
 
         <label for="textarea">Go ahead, ask your question I DARE YOU: </label>
-        <textarea rows="3" cols="60" id="textarea" name="varTextarea"></textarea>
+        <textarea rows="3" cols="60" id="question" name="varTextarea"></textarea>
         
         <button type="submit">Submit</button>
         </form>
-        <hr/>
+        </div>
 
         <p>So far we have helped 400 people</p>
 
         <h5>Here's the weather in Legazpi city Phillipines, i dont know why but hey why not</h5>
         <p>the Weather stuff service will go here</p>
+    
 
     </main>
 
