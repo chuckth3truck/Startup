@@ -12,6 +12,7 @@ html {
   header {
     flex: 0 40px;
     background-color: rgb(11, 7, 114);
+    height: 120px;
 
   }
 
