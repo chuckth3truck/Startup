@@ -43,3 +43,11 @@ answer question if you are a helper
 * Img - I wasn't sure exactly what to do here. I added a picture to my queue page but i wasn't sure what it should be of. . . . so its a rock idk i hope you like it.
 * Login/DB - login boxes and submit button are there, the questions in the queue represent stuff pulled from the database.
 * WebSocket - total tally of people helped in question page represents realtime tally. 
+
+## CSS Deliverable
+* 30% Header, footer, and main content body (done)
+* 20% Navigation elements (done)
+* 10% Responsive to window resizing (done)
+* 20% Application elements (done)
+* 10% Application text content (done)
+* 10% Application images (done)
