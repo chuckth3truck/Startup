@@ -45,9 +45,9 @@ answer question if you are a helper
 * WebSocket - total tally of people helped in question page represents realtime tally. 
 
 ## CSS Deliverable
-* 30% Header, footer, and main content body (done)
-* 20% Navigation elements (done)
-* 10% Responsive to window resizing (done)
-* 20% Application elements (done)
-* 10% Application text content (done)
-* 10% Application images (done)
+* 30% Header, footer, and main content body (done) - used flexx to layout sections
+* 20% Navigation elements (done) - menu items take you to different paiges
+* 10% Responsive to window resizing (done) - looks good on desktop and ipad, phone not so much
+* 20% Application elements (done) - created table using bootstrap
+* 10% Application text content (done) - using many different fonts, such as fantasy and sans-sarif
+* 10% Application images (done) - created a margin around my images. 
