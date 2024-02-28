@@ -1,4 +1,4 @@
-function getquestion() {
+function updateTable() {
     // let name = localStorage.getItem("username");
     // let question = JSON.parse(localStorage.getItem(name))["question"];
     // let subject = JSON.parse(localStorage.getItem(name))["subject"];
@@ -24,12 +24,19 @@ function getquestion() {
             acceptEL.textContent = "temp";
 
             const rowEL = document.createElement("tr");
+            rowEL.appendChild(nameEL);
+            rowEL.appendChild(subjectEL);
+            rowEL.appendChild(questionEL);
+            rowEL.appendChild(acceptEL);
 
-
+            tableElement.appendChild(rowEL);
 
         }
     }
 
-
-
+    else{
+        tableElement.innerHTML = "No one in the queue";
+    }
 }
+
+updateTable();

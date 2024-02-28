@@ -26,26 +26,16 @@
     </header>
 
     <main class="container-fluid bg-secondary text-center">
-        <table class="table table-warning table-striped-columns" id="queue">
-            <thead class="table-dark" >
-            <tr>
-                <th>Name</th>
-                <th>Subject</th>
-                <th>Question</th>
-                <th>Accept/Decline</th>
-            </tr>
-            <tr>
-                <td>jessica</td>
-                <td>Cars</td>
-                <td>How to i replace my tire</td>
-                <td>Accept/Decline</td>
-            </tr>
-            <tr>
-                <td>David</td>
-                <td>Old people problems</td>
-                <td>I've fallen and i cant get up</td>
-                <td>Accept/Decline</td>
-            </tr>
+        <table class="table table-warning table-striped-columns">
+            <thead class="table-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Subject</th>
+                    <th>Question</th>
+                    <th>Accept/Decline</th>
+                </tr>
+            </thead>
+            <tbody id="queue"></tbody>
         </table>
 
         <hr/>
@@ -57,6 +47,6 @@
         <div class="name">Charles Oliphant</div>
         <div><a href="https://github.com/chuckth3truck/Startup">GitHub</a></div>
     </footer>
-    
+    <script src="queue.js"></script>
 </body>
 </html>
