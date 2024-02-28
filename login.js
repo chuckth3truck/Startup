@@ -1,10 +1,13 @@
-if (!localStorage.getItem("index")){
-    localStorage.setItem("index", 0)
-}
-
 function storename(){
-    const currentindex = localStorage.getItem("index");
     const idname = document.querySelector("#name");
-    localStorage.setItem(currentindex, idname.value);
-    localStorage.setItem("index", currentindex+1)
+
+    if (!localStorage.getItem("usernames")){
+        localStorage.setItem("username", []);
+    }
+
+    let names = localStorage.getItem("usernames");
+    names.append(idnmae.value)
+
+    localStorage.setItem("usernames", names);
+    window.location.href = "question.html";
 };  
