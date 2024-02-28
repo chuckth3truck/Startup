@@ -1,13 +1,6 @@
 function storename(){
-    const idname = document.querySelector("#name");
+    const name = document.querySelector("#name").value;
 
-    if (!localStorage.getItem("usernames")){
-        localStorage.setItem("username", []);
-    }
-
-    let names = localStorage.getItem("usernames");
-    names.append(idnmae.value)
-
-    localStorage.setItem("usernames", names);
+    localStorage.setItem("username", name);
     window.location.href = "question.html";
-};  
+}
