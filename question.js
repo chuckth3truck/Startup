@@ -9,7 +9,7 @@ function storequestion() {
     }
 
 
-    localStorage.setItem(name, JSON.stringify(dct));
+    localStorage.setItem("queue", JSON.stringify({name:dct}));
 
     // console.log(JSON.parse(localStorage.getItem(name)))
 }
