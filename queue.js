@@ -1,12 +1,6 @@
-function addButton(){
-    let buttonEl = document.getElementById("#AcceptDecline-Button");
-
-    buttonEl.innerHTML += "<button> onclick='AcceptDecline_Action()' </button>";
-}
-
-
 function AcceptDecline_Action() {
 
+    let buttonEl = document.querySelector()
 }
 
 function updateTable() {
@@ -18,8 +12,6 @@ function updateTable() {
     const queueMap = localStorage.getItem("queue");
     if (queueMap){
         queue = JSON.parse(queueMap);
-        console.log(queue.name);
-
     }
     
     const tableElement = document.querySelector("#queue");
@@ -36,7 +28,35 @@ function updateTable() {
             subjectEL.textContent = map.subject;
             questionEL.textContent = map.question;
 
-            acceptEL.innerHTML += '<button onclick="AcceptDecline_Action()">Accept</button>';
+            let clicked = false;
+            const button = document.createElement("button");
+            button.textContent = "Accept";
+            button.addEventListener("click", () => {
+                button.style["background-color"] = "red";
+                button.textContent = "DONE";
+                clicked = true;
+
+                if (clicked){
+                    button.addEventListener("click", () => {
+                    rowEL.remove();
+                    let newQueue = JSON.parse(localStorage.getItem("queue"));
+                    
+                    console.log(newQueue);
+                    newQueue = Object.keys(newQueue).filter(objKey =>
+                        objKey !== name).reduce((newObj, key) =>
+                        {
+                            newObj[key] = newQueue[key];
+                            return newObj;
+                        }, {}
+                    );
+                    console.log(newQueue);
+                    localStorage.setItem("queue", JSON.stringify(newQueue));
+                    })                
+                }
+            })
+            
+
+            acceptEL.appendChild(button)
             // addButton()
 
             const rowEL = document.createElement("tr");
@@ -46,6 +66,8 @@ function updateTable() {
             rowEL.appendChild(acceptEL);
 
             tableElement.appendChild(rowEL);
+
+            
 
         }
     }
