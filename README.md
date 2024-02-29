@@ -51,3 +51,9 @@ answer question if you are a helper
 * 20% Application elements (done) - created table using bootstrap
 * 10% Application text content (done) - using many different fonts, such as fantasy and sans-sarif
 * 10% Application images (done) - created a margin around my images. 
+
+## JavaScript Deliverable
+* 20% JavaScript support for future login. - login takes user to question paige
+* 20% JavaScript support for future database data. - code stores name and question data in local storage
+* 20% JavaScript support for future WebSocket. - table automatically updates with people's username and their question
+* 40% JavaScript support for your application's interaction logic. - table has button which accepts persons question request and then updates the button to remove the person from the queue in both the table and local storage. 

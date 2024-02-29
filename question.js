@@ -22,8 +22,12 @@ function storequestion() {
 }
 
 function displayUser() {
-  let name = localStorage.getItem("username")
+  const name = localStorage.getItem("username");
 
-  
-  
+  const headerEl= document.getElementsByTagName("h3");
+  headerEl.innerText = name;
+
+  console.log(headerEl.innerText); 
 }
+
+// displayUser()

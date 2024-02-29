@@ -1,8 +1,3 @@
-function AcceptDecline_Action() {
-
-    let buttonEl = document.querySelector()
-}
-
 function updateTable() {
     // let name = localStorage.getItem("username");
     // let question = JSON.parse(localStorage.getItem(name))["question"];
@@ -73,7 +68,6 @@ function updateTable() {
     }
 
     else{
-        console.log(queue.length);
         tableElement.innerHTML = "No one in the queue";
     }
 }
