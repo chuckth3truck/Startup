@@ -3,16 +3,18 @@ function updateTable() {
     // let question = JSON.parse(localStorage.getItem(name))["question"];
     // let subject = JSON.parse(localStorage.getItem(name))["subject"];
 
-    let queue = [];
+    let queue = {};
     const queueMap = localStorage.getItem("queue");
-    if (queue){
+    if (queueMap){
         queue = JSON.parse(queueMap);
+        console.log(queue.name);
+
     }
     
     const tableElement = document.querySelector("#queue");
 
-    if (queue.length){
-        for (let [name, map] of queue){
+    if (queue){
+        for (let [name, map] of Object.entries(queue)){
             const nameEL = document.createElement("td");
             const subjectEL = document.createElement("td");
             const questionEL = document.createElement("td");
@@ -35,6 +37,7 @@ function updateTable() {
     }
 
     else{
+        console.log(queue.length);
         tableElement.innerHTML = "No one in the queue";
     }
 }
