@@ -22,12 +22,12 @@ function storequestion() {
 }
 
 function displayUser() {
-  const name = localStorage.getItem("username");
+  const name = JSON.parse(localStorage.getItem("queue"));
 
   const headerEl= document.getElementsByTagName("h3");
-  headerEl.innerText = name;
+  headerEl.innerHTML = "No one in the queue";
 
-  console.log(headerEl.innerText); 
+//   console.log(Object.keys(name).length); 
 }
 
-// displayUser()
+displayUser()

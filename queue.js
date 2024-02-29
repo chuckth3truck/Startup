@@ -11,7 +11,7 @@ function updateTable() {
     
     const tableElement = document.querySelector("#queue");
 
-    if (queue){
+    if (Object.keys(queue).length){
         for (let [name, map] of Object.entries(queue)){
             const nameEL = document.createElement("td");
             const subjectEL = document.createElement("td");
