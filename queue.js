@@ -1,3 +1,14 @@
+function addButton(){
+    let buttonEl = document.getElementById("#AcceptDecline-Button");
+
+    buttonEl.innerHTML += "<button> onclick='AcceptDecline_Action()' </button>";
+}
+
+
+function AcceptDecline_Action() {
+
+}
+
 function updateTable() {
     // let name = localStorage.getItem("username");
     // let question = JSON.parse(localStorage.getItem(name))["question"];
@@ -20,10 +31,13 @@ function updateTable() {
             const questionEL = document.createElement("td");
             const acceptEL = document.createElement("td");
 
+
             nameEL.textContent = name;
             subjectEL.textContent = map.subject;
             questionEL.textContent = map.question;
-            acceptEL.textContent = "temp";
+
+            acceptEL.innerHTML += '<button onclick="AcceptDecline_Action()">Accept</button>';
+            // addButton()
 
             const rowEL = document.createElement("tr");
             rowEL.appendChild(nameEL);
