@@ -22,11 +22,15 @@ function storequestion() {
 }
 
 function displayUser() {
-
     const name = localStorage.getItem("username");
+    const nameEL = document.createElement("h2");
+    nameEL.textContent = name;
+
 
     const headerEl= document.getElementById("user");
-    headerEl.innerHTML = name;
+    headerEl.parentNode.insertBefore(nameEL, headerEl.nextSibling);
+
+    headerEl.style.textAlign = 'center';
 }
 
 displayUser()

@@ -1,8 +1,14 @@
 .question-box{
     display: flex;
     flex-direction: column;
-    height: 100%;
+    padding: 10px;
+    height: 40vh;
+    width: 100vh;
 
     text-align: center;
     background-color: white;
+}
+
+#user{
+    color: black;
 }
