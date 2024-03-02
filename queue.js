@@ -12,6 +12,7 @@ function updateTable() {
     const tableElement = document.querySelector("#queue");
 
     if (Object.keys(queue).length){
+        // console.log("i got here")
         for (let [name, map] of Object.entries(queue)){
             const nameEL = document.createElement("td");
             const subjectEL = document.createElement("td");
@@ -67,9 +68,10 @@ function updateTable() {
         }
     }
 
-    else{
-        tableElement.innerHTML = "No one in the queue";
-    }
 }
 
-// updateTable();
+function activateQueue() {
+    const checkboxEl = document.querySelector(".box");
+    console.log((checkboxEl));
+}
+updateTable();

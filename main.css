@@ -94,6 +94,9 @@ button{
 
 .menu-Button{
   font-size: 20px;
+}
 
-
+.box{
+  color: white;
+  font-size: 1em;
 }
