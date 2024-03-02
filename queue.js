@@ -72,4 +72,4 @@ function updateTable() {
     }
 }
 
-updateTable();
+// updateTable();
