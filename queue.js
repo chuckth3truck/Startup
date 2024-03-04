@@ -26,6 +26,7 @@ function updateTable() {
 
             let clicked = false;
             const button = document.createElement("button");
+            button.setAttribute("id", "AcceptButton");
             button.textContent = "Accept";
             button.addEventListener("click", () => {
                 button.style["background-color"] = "red";
