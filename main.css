@@ -11,20 +11,29 @@ html {
 
   header {
     flex: 0 40px;
-    background-color: rgb(11, 7, 114);
+    background-color: rgb(29, 28, 66);
 
-  }
-
-menu{
-  margin: 0px;
-
-}
-  .menu-items{
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
+
+  }
+
+
+
+  .menu-items{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border-radius: 15px;
     /* height: 10vh; */
+
+    background: rgb(29, 28, 66);
+    width: 30vw;
+    /* box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3); */
 
 
   }
@@ -40,7 +49,7 @@ menu{
     /* background-color: rgba(4, 0, 255, 0.882); */
     color: white;
     font-family: fantasy;
-    font-size: 1.5em;
+    font-size: 3em;
     /* padding: 10px; */
     margin: 0px;
     /* /* border-radius: 30px; */
@@ -59,7 +68,7 @@ menu{
     flex: 0 40px;
     background-color: rgba(0, 0, 0);
     color: white;
-    font-size: .7em;
+    font-size: 1em;
 
     display: flex;
     flex-direction: column;
@@ -72,7 +81,14 @@ a{
     text-decoration: none;
     font-family: fantasy;
     font-size: 1em;
-    
+    padding: 4px 8px; 
+    border-radius: 20px;   
+}
+
+a:hover{
+  transition: 0.15s;
+  background: #0a66c2;
+  color: white;
 }
 
 img{

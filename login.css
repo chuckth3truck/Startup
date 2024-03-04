@@ -2,16 +2,21 @@
     color: white;
     margin: 40px;
     padding: 20px;
-    background-color: rgb(11, 7, 114);
+    background-color: rgb(29, 28, 66);
 
     text-align: center;
 
     border-radius: 20px;
+
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+
 }
 .login-border{
-    background-color: rgb(183, 183, 183);
+    /* background-color: rgb(183, 183, 183); */
     margin: 20px;
     border-radius: 100px;
+    /* box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3); */
+
     
 }
 label{
