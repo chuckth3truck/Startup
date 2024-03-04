@@ -72,6 +72,6 @@ function updateTable() {
 
 function activateQueue() {
     const checkboxEl = document.querySelector(".box");
-    console.log((checkboxEl));
+    localStorage.setItem("queue_activated",checkboxEl.checked);
 }
 updateTable();
