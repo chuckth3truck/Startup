@@ -92,7 +92,7 @@ a:hover{
 }
 
 img{
-  /* margin: 20px; */
+  margin: 20px;
   width: 40vh;
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
 
