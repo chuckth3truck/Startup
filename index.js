@@ -39,7 +39,8 @@ app.listen(port, () => {
 
 let queue = {};
 function storequestion(body) {
-    console.log(body);
+    let [name, map] = Object.entries(queue);
+    console.log(name, map);
     return body
 
         // let dct = {

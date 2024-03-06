@@ -80,8 +80,7 @@ function updateTable(queue) {
                         }, {}
                     );
                     console.log(newQueue);
-                    localStorage.setItem("queue", JSON.stringify(newQueue));
-                    deletename(newQueue)
+                    ret = deletename(newQueue);
                     }) 
                     
                 }
