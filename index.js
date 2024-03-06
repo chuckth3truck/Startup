@@ -15,14 +15,14 @@ var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 // GetScores
-apiRouter.get('', (_req, res) => {
-  res.send(scores);
+apiRouter.get('/getqueue', (_req, res) => {
+  res.send(queue);
 });
 
-// SubmitScore
-apiRouter.post('/score', (req, res) => {
-  scores = updateScores(req.body, scores);
-  res.send(scores);
+// Add to queue
+apiRouter.post('/queue', (req, res) => {
+  queue = storequestion(req.body);
+  res.send("we good")
 });
 
 // Return the application's default page if the path is unknown
@@ -36,24 +36,23 @@ app.listen(port, () => {
 
 // updateScores considers a new score for inclusion in the high scores.
 // The high scores are saved in memory and disappear whenever the service is restarted.
-let scores = [];
-function updateScores(newScore, scores) {
-  let found = false;
-  for (const [i, prevScore] of scores.entries()) {
-    if (newScore.score > prevScore.score) {
-      scores.splice(i, 0, newScore);
-      found = true;
-      break;
-    }
-  }
 
-  if (!found) {
-    scores.push(newScore);
-  }
+let queue = {};
+function storequestion(body) {
+    console.log(body);
+    return body
 
-  if (scores.length > 10) {
-    scores.length = 10;
-  }
+        // let dct = {
+        //     "subject": subject,
+        //     "question": question
+        // }
 
-  return scores;
+        // let queue = {};
+        // const queueMap = localStorage.getItem("queue");
+        // if (queueMap){
+        //     queue = JSON.parse(queueMap);
+        // }
+        // queue[name] = dct
+
+
 }

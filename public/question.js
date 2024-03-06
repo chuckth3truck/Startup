@@ -1,7 +1,5 @@
-function storequestion() {
-    // let activate = JSON.parse(localStorage.getItem("queue_activated"));
-    // if (activate){
-        console.log("hello");
+async function storequestion() {
+    
         let subject = document.querySelector("#subject").value;
         let question =  document.querySelector("#question").value;
         let name = localStorage.getItem("username");
@@ -12,22 +10,33 @@ function storequestion() {
         }
 
         let queue = {};
-        const queueMap = localStorage.getItem("queue");
-        if (queueMap){
-            queue = JSON.parse(queueMap);
-        }
         queue[name] = dct
 
-        localStorage.setItem("queue", JSON.stringify(queue));
+        try {
+            const response = await fetch('/api/queue', {
+                method: 'POST',
+                headers: {'content-type': 'application/json'},
+                body: JSON.stringify(queue),
+            });
+
+            console.log(response);
+        
+                
+          } catch {
+            // If there was an error then just use the last saved scores
+            const queueMap = localStorage.getItem("queue");
+            if (queueMap){
+                queue = JSON.parse(queueMap);
+                localStorage.setItem("queue", JSON.stringify(queue))
+            }
+            }
+
 
         window.location.href = "queue.html";
-    // console.log(JSON.parse(localStorage.getItem(name)))
-   
-    // }
-    // else {
-    //     console.log("no");
-    // }
+
 }
+
+   
 
 function displayUser() {
     const name = localStorage.getItem("username");

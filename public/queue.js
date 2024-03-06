@@ -1,13 +1,27 @@
-function updateTable() {
+async function loadqueue() {
+    let queue = {};
+    try {
+        // Get the latest high scores from the service
+        const response = await fetch('/api/getqueue');
+        queue = await response.json();
+    
+        // Save the scores in case we go offline in the future
+        localStorage.setItem('queue', JSON.stringify(queue));
+      } catch {
+        // If there was an error then just use the last saved scores
+        const queuemap = localStorage.getItem('queue');
+        if (queuemap) {
+          queue = JSON.parse(queuemap);
+        }
+      }
+    updateTable(queue);
+}
+
+function updateTable(queue) {
     // let name = localStorage.getItem("username");
     // let question = JSON.parse(localStorage.getItem(name))["question"];
     // let subject = JSON.parse(localStorage.getItem(name))["subject"];
 
-    let queue = {};
-    const queueMap = localStorage.getItem("queue");
-    if (queueMap){
-        queue = JSON.parse(queueMap);
-    }
     
     const tableElement = document.querySelector("#queue");
 
@@ -93,5 +107,5 @@ function displayPicture() {
       });
   }
 
-displayPicture()
-updateTable();
+// displayPicture();
+loadqueue();
