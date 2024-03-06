@@ -17,6 +17,23 @@ async function loadqueue() {
     updateTable(queue);
 }
 
+async function deletename(newqueue){
+    try {
+        const response = await fetch('/api/queue', {
+            method: 'POST',
+            headers: {'content-type': 'application/json'},
+            body: JSON.stringify(newqueue),
+        });
+
+        console.log(response);
+    
+            
+      } catch {
+        // If there was an error then just use the last saved scores
+        return newqueue
+        }
+        }
+
 function updateTable(queue) {
     // let name = localStorage.getItem("username");
     // let question = JSON.parse(localStorage.getItem(name))["question"];
@@ -50,9 +67,11 @@ function updateTable(queue) {
                 if (clicked){
                     button.addEventListener("click", () => {
                     rowEL.remove();
-                    let newQueue = JSON.parse(localStorage.getItem("queue"));
+
+                    let newQueue = queue;
+
+
                     
-                    console.log(newQueue);
                     newQueue = Object.keys(newQueue).filter(objKey =>
                         objKey !== name).reduce((newObj, key) =>
                         {
@@ -62,7 +81,9 @@ function updateTable(queue) {
                     );
                     console.log(newQueue);
                     localStorage.setItem("queue", JSON.stringify(newQueue));
-                    })                
+                    deletename(newQueue)
+                    }) 
+                    
                 }
             })
             
