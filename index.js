@@ -14,15 +14,21 @@ app.use(express.static(__dirname+'\\public'));
 var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
-// GetScores
-apiRouter.get('/getqueue', (_req, res) => {
+// Get Queue
+apiRouter.get('/queue', (_req, res) => {
   res.send(queue);
 });
 
 // Add to queue
 apiRouter.post('/queue', (req, res) => {
-  queue = storequestion(req.body);
-  res.send("we good")
+  storequestion(req.body);
+  res.send("we good");
+});
+
+// Delete from queue
+apiRouter.delete('/queue', (req, res) => {
+  queue = deletequestion(req.body);
+  res.send(queue);
 });
 
 // Return the application's default page if the path is unknown
@@ -36,12 +42,16 @@ app.listen(port, () => {
 
 // updateScores considers a new score for inclusion in the high scores.
 // The high scores are saved in memory and disappear whenever the service is restarted.
-
 let queue = {};
 function storequestion(body) {
-    let [name, map] = Object.entries(queue);
-    console.log(name, map);
-    return body
+  let obj = JSON.stringify(body);
+
+  for ([name, object] of Object.entries(JSON.parse(obj))){
+    queue[name] = object;
+  };
+
+  return JSON.stringify(queue);
+
 
         // let dct = {
         //     "subject": subject,
@@ -56,4 +66,8 @@ function storequestion(body) {
         // queue[name] = dct
 
 
+}
+
+function deletequestion(name) {
+    return name;
 }

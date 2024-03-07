@@ -2,7 +2,7 @@ async function loadqueue() {
     let queue = {};
     try {
         // Get the latest high scores from the service
-        const response = await fetch('/api/getqueue');
+        const response = await fetch('/api/queue');
         queue = await response.json();
     
         // Save the scores in case we go offline in the future
@@ -20,7 +20,7 @@ async function loadqueue() {
 async function deletename(newqueue){
     try {
         const response = await fetch('/api/queue', {
-            method: 'POST',
+            method: 'delete',
             headers: {'content-type': 'application/json'},
             body: JSON.stringify(newqueue),
         });
@@ -70,8 +70,6 @@ function updateTable(queue) {
 
                     let newQueue = queue;
 
-
-                    
                     newQueue = Object.keys(newQueue).filter(objKey =>
                         objKey !== name).reduce((newObj, key) =>
                         {
