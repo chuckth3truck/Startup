@@ -51,17 +51,24 @@ function displayUser() {
     headerEl.style.textAlign = 'center';
 }
 
-function getweather() {
-    const random = Math.floor(Math.random() * 1000);
-    fetch(`https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41`)
+function getquote() {
+    fetch(`https://api.chucknorris.io/jokes/random`)
       .then((response) => response.json())
       .then((data) => {
         
-  
+        const quoteEL = document.createElement("p");
+        quoteEL.textContent = data.value;
+
+        const header5El= document.getElementById("quote");
+        header5El.parentNode.insertBefore(quoteEL, header5El.nextSibling);
+
+        header5El.style.textAlign = 'center';
+        quoteEL.style.padding = '10px'
         
-        console.log(data);
+        console.log(data.value);
       });
   }
 
+
 displayUser();
-getweather();
+getquote();
