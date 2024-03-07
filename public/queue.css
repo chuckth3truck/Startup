@@ -8,3 +8,9 @@
     background: #75a3d2;
     color: white;
   }
+
+#picture {
+    /* width: 10vw; */
+
+    height: 200vh;
+}

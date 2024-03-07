@@ -51,4 +51,17 @@ function displayUser() {
     headerEl.style.textAlign = 'center';
 }
 
-displayUser()
+function getweather() {
+    const random = Math.floor(Math.random() * 1000);
+    fetch(`https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41`)
+      .then((response) => response.json())
+      .then((data) => {
+        
+  
+        
+        console.log(data);
+      });
+  }
+
+displayUser();
+getweather();
