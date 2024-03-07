@@ -40,8 +40,8 @@ app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
 
-// updateScores considers a new score for inclusion in the high scores.
-// The high scores are saved in memory and disappear whenever the service is restarted.
+// Store question will get the question object from the front end user and store in te queue object
+// deletequestion is slightly redundant but im keeping cuz it works 
 let queue = {};
 function storequestion(body) {
   let obj = JSON.stringify(body);
@@ -51,20 +51,6 @@ function storequestion(body) {
   };
 
   return JSON.stringify(queue);
-
-
-        // let dct = {
-        //     "subject": subject,
-        //     "question": question
-        // }
-
-        // let queue = {};
-        // const queueMap = localStorage.getItem("queue");
-        // if (queueMap){
-        //     queue = JSON.parse(queueMap);
-        // }
-        // queue[name] = dct
-
 
 }
 
