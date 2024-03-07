@@ -57,3 +57,10 @@ answer question if you are a helper
 * 20% JavaScript support for future database data. - code stores name and question data in local storage
 * 20% JavaScript support for future WebSocket. - table automatically updates with people's username and their question
 * 40% JavaScript support for your application's interaction logic. - table has button which accepts persons question request and then updates the button to remove the person from the queue in both the table and local storage. 
+
+## Service Deliverable
+* 40% - Create an HTTP service using Node.js and Express - Created http service using node and express
+* 10% - Frontend served up using Express static middleware - frontend files are served up through service
+* 10% - Your frontend calls third party service endpoints - frontend calls a get random picture api and a chuck norris quote api
+* 20% - Your backend provides service endpoints - backend provides get, post and delete for the queue
+* 20% - Your frontend calls your service endpoints - frontent calls to update the queue, delete from the queue and get the queue
