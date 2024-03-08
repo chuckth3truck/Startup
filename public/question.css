@@ -16,7 +16,9 @@
     color: black;
 }
 
-/* #quote{
-    padding: 10px;
-} */
+button:hover{
+    transition: .5s;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
+    transform: scale(1.01);
+  }
 

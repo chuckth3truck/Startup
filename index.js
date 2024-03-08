@@ -8,7 +8,7 @@ const port = process.argv.length > 2 ? process.argv[2] : 4000;
 app.use(express.json());
 
 // Serve up the front-end static content hosting
-app.use(express.static('public'));
+app.use(express.static(__dirname+'\\public'));
 
 // Router for service endpoints
 var apiRouter = express.Router();
@@ -33,7 +33,7 @@ apiRouter.delete('/queue', (req, res) => {
 
 // Return the application's default page if the path is unknown
 app.use((_req, res) => {
-  res.sendFile('index.html', { root: 'public' });
+  res.sendFile('index.html', { root: __dirname+'\\public' });
 });
 
 app.listen(port, () => {

@@ -11,7 +11,7 @@ html {
 
   header {
     flex: 0 40px;
-    background-color: rgb(29, 28, 66);
+    background-color:#002E5D;
 
     display: flex;
     flex-direction: column;
@@ -29,30 +29,24 @@ html {
     align-items: center;
     padding: 5px;
     border-radius: 15px;
-    /* height: 10vh; */
 
     background: rgb(29, 28, 66);
     width: 20vw;
-    /* box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3); */
 
 
   }
 
   div{
-    /* padding: 10px; */
     font-size: 1.5em;
   }
 
 
   h1{
     text-align: start;
-    /* background-color: rgba(4, 0, 255, 0.882); */
     color: white;
     font-family: fantasy;
     font-size: 3em;
-    /* padding: 10px; */
     margin: 0px;
-    /* /* border-radius: 30px; */
   }
 
   main {
@@ -87,8 +81,9 @@ a{
 
 a:hover{
   transition: 0.15s;
-  background: #0a66c2;
   color: white;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.3);
+  transform: scale(1.1);
 }
 
 img{
@@ -101,7 +96,7 @@ img{
 
 button{
   margin: 0.1em 0;
-  background-color: #0a66c2;
+  background-color: rgb(29, 28, 66);
   border: 0;
   border-radius: 100px;
   color: #ffffff;
@@ -111,6 +106,7 @@ button{
   padding: 0 20px;
   text-align: center;
 }
+
 
 .menu-Button{
   font-size: 20px;
