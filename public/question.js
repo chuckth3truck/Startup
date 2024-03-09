@@ -23,7 +23,6 @@ async function storequestion() {
         
                 
           } catch {
-            // If there was an error then just use the last saved scores
             const queueMap = localStorage.getItem("queue");
             if (queueMap){
                 queue = JSON.parse(queueMap);

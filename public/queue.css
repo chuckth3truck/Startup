@@ -9,8 +9,6 @@
     color: white;
   }
 
-#picture {
-    /* width: 10vw; */
-
-    height: 10vh;
+h1{
+    font-weight: bold;
 }

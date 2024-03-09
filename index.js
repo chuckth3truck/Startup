@@ -34,6 +34,7 @@ apiRouter.delete('/queue', (req, res) => {
 // Return the application's default page if the path is unknown
 app.use((_req, res) => {
   res.sendFile('index.html', { root: __dirname+'\\public' });
+  console.log("it works")
 });
 
 app.listen(port, () => {
