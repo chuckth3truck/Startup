@@ -12,3 +12,33 @@
 h1{
     font-weight: bold;
 }
+
+.name{
+    font-family: serif;
+}
+
+body{
+    overflow-y:scroll;
+}
+
+.table-light{
+    width: 95vw;
+    height: 7vh;
+
+    font-size: 1.2em;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+
+    background-color: white;
+
+
+}
+#queue{
+    text-align: center;
+}
+td{
+    padding: 10px;
+    text-wrap: pretty;
+}
+th{
+    padding: 10px;
+}
