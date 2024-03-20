@@ -1,4 +1,9 @@
 const express = require('express');
+const Database = require('./database.js');
+
+const db = Database.main();
+
+
 const app = express();
 
 // The service port. In production the front-end code is statically hosted by the service on the same port.
@@ -16,7 +21,7 @@ app.use(`/api`, apiRouter);
 
 // Get Queue
 apiRouter.get('/queue', (_req, res) => {
-  res.send(queue);
+  res.send(getquestion());
 });
 
 // Add to queue
@@ -41,19 +46,28 @@ app.listen(port, () => {
 });
 
 // Store question will get the question object from the front end user and store in te queue object
-// deletequestion is slightly redundant but im keeping cuz it works 
-let queue = {};
-function storequestion(body) {
+// deletequestion is slightly redundant but im keeping cuz it works
+
+async function storequestion(body) {
+  queue = {};
+
   let obj = JSON.stringify(body);
 
   for ([name, object] of Object.entries(JSON.parse(obj))){
     queue[name] = object;
   };
 
-  return JSON.stringify(queue);
+  db.collection("queue").insertOne(queue);
 
 }
 
+function getquestion(){
+  return db.getCollection("queue")
+}
+
 function deletequestion(name) {
-    return name;
+   const queue = db.collection('queue');
+   db.queue.drop();
+
+   db.collection("queue").insertOne((name));
 }
