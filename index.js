@@ -1,7 +1,5 @@
 const express = require('express');
-const Database = require('./database.js');
-
-const db = Database.main();
+const DB = require('./database.js');
 
 
 const app = express();
@@ -20,19 +18,20 @@ var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 // Get Queue
-apiRouter.get('/queue', (_req, res) => {
-  res.send(getquestion());
+apiRouter.get('/queue', async (_req, res) => {
+  console.log(await DB.getquestion())
+  res.send(await DB.getquestion());
 });
 
 // Add to queue
-apiRouter.post('/queue', (req, res) => {
-  storequestion(req.body);
+apiRouter.post('/queue', async (req, res) => {
+  DB.storequestion(req.body);
   res.send("we good");
 });
 
 // Delete from queue
-apiRouter.delete('/queue', (req, res) => {
-  queue = deletequestion(req.body);
+apiRouter.delete('/queue', async (req, res) => {
+  queue = DB.deletequestion(req.body);
   res.send(queue);
 });
 
@@ -44,30 +43,3 @@ app.use((_req, res) => {
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
-
-// Store question will get the question object from the front end user and store in te queue object
-// deletequestion is slightly redundant but im keeping cuz it works
-
-async function storequestion(body) {
-  queue = {};
-
-  let obj = JSON.stringify(body);
-
-  for ([name, object] of Object.entries(JSON.parse(obj))){
-    queue[name] = object;
-  };
-
-  db.collection("queue").insertOne(queue);
-
-}
-
-function getquestion(){
-  return db.getCollection("queue")
-}
-
-function deletequestion(name) {
-   const queue = db.collection('queue');
-   db.queue.drop();
-
-   db.collection("queue").insertOne((name));
-}

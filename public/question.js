@@ -5,18 +5,19 @@ async function storequestion() {
         let name = localStorage.getItem("username");
 
         let dct = {
+            'name': name,
             "subject": subject,
             "question": question
         }
 
-        let queue = {};
-        queue[name] = dct
+        // let queue = {};
+        // queue[name] = dct
 
         try {
             const response = await fetch('/api/queue', {
                 method: 'POST',
                 headers: {'content-type': 'application/json'},
-                body: JSON.stringify(queue),
+                body: JSON.stringify(dct),
             });
 
             console.log(response);
