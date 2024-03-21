@@ -44,14 +44,14 @@ function updateTable(queue) {
 
     if (Object.keys(queue).length){
         // console.log("i got here")
-        for (let [name, map] of Object.entries(queue)){
+        for (let [i, map] of Object.entries(queue)){
             const nameEL = document.createElement("td");
             const subjectEL = document.createElement("td");
             const questionEL = document.createElement("td");
             const acceptEL = document.createElement("td");
 
 
-            nameEL.textContent = name;
+            nameEL.textContent = map.name;
             subjectEL.textContent = map.subject;
             questionEL.textContent = map.question;
 
@@ -71,7 +71,7 @@ function updateTable(queue) {
                     let newQueue = queue;
 
                     newQueue = Object.keys(newQueue).filter(objKey =>
-                        objKey !== name).reduce((newObj, key) =>
+                        objKey !== map.name).reduce((newObj, key) =>
                         {
                             newObj[key] = newQueue[key];
                             return newObj;
