@@ -19,19 +19,18 @@ app.use(`/api`, apiRouter);
 
 // Get Queue
 apiRouter.get('/queue', async (_req, res) => {
-  console.log(await DB.getquestion())
   res.send(await DB.getquestion());
 });
 
 // Add to queue
 apiRouter.post('/queue', async (req, res) => {
-  DB.storequestion(req.body);
+  await DB.storequestion(req.body);
   res.send("we good");
 });
-
+``
 // Delete from queue
 apiRouter.delete('/queue', async (req, res) => {
-  queue = DB.deletequestion(req.body);
+  queue = await DB.deletequestion(req.body);
   res.send(queue);
 });
 

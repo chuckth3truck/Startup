@@ -17,12 +17,12 @@ async function loadqueue() {
     updateTable(queue);
 }
 
-async function deletename(newqueue){
+async function deletename(name){
     try {
         const response = await fetch('/api/queue', {
             method: 'delete',
             headers: {'content-type': 'application/json'},
-            body: JSON.stringify(newqueue),
+            body: JSON.stringify({"name":name}),
         });
 
         console.log(response);
@@ -45,6 +45,7 @@ function updateTable(queue) {
     if (Object.keys(queue).length){
         // console.log("i got here")
         for (let [i, map] of Object.entries(queue)){
+            console.log(i);
             const nameEL = document.createElement("td");
             const subjectEL = document.createElement("td");
             const questionEL = document.createElement("td");
@@ -68,17 +69,19 @@ function updateTable(queue) {
                     button.addEventListener("click", () => {
                     rowEL.remove();
 
-                    let newQueue = queue;
+                    deletename(map.name);
 
-                    newQueue = Object.keys(newQueue).filter(objKey =>
-                        objKey !== map.name).reduce((newObj, key) =>
-                        {
-                            newObj[key] = newQueue[key];
-                            return newObj;
-                        }, {}
-                    );
-                    console.log(newQueue);
-                    ret = deletename(newQueue);
+                    // let newQueue = map;
+
+                    // newQueue = Object.keys(newQueue).filter(objKey =>
+                    //     objKey !== map.name).reduce((newObj, key) =>
+                    //     {
+                    //         newObj[key] = newQueue[key];
+                    //         return newObj;
+                    //     }, {}
+                    // );
+                    // console.log(newQueue);
+                    // ret = deletename(newQueue);
                     }) 
                     
                 }

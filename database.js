@@ -28,7 +28,6 @@ const config = require('./dbConfig.json');
       queue[name] = object;
     };
 
-    console.log(queue);
   
     queuecollection.insertOne(body);
   
@@ -38,10 +37,13 @@ const config = require('./dbConfig.json');
     return await queuecollection.find().toArray();
     }
   
-  function deletequestion(name) {
-     queuecollection.drop();
+  async function deletequestion(name) {
+    //  await queuecollection.drop();
+    user = name.name;
+    await queuecollection.deleteOne( {"name": user} )
+    console.log(name.name);
   
-     queuecollection.insertOne((name));
+    //  queuecollection.insertOne((name));
   }
 
 module.exports = {
