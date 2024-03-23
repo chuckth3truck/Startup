@@ -42,8 +42,6 @@ async function login(){
             body: JSON.stringify(dct),
         });
 
-        console.log(response);
-
         if (response.ok) {
             localStorage.setItem('username',nameEL.value);
             window.location.href = 'question.html';
