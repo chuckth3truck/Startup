@@ -27,6 +27,10 @@ const config = require('./dbConfig.json');
     return userCollection.findOne({ email: email });
   }
 
+  function getUserByToken(token) {
+    return userCollection.findOne({ token: token });
+  }
+
   async function createUser(email, password) {
     // Hash the password before we insert it into the database
     const passwordHash = await bcrypt.hash(password, 10);
@@ -35,6 +39,8 @@ const config = require('./dbConfig.json');
       email: email,
       password: passwordHash,
       token: uuid.v4(),
+      authourized: false,
+
     };
     await userCollection.insertOne(user);
   
@@ -64,7 +70,6 @@ const config = require('./dbConfig.json');
     //  await queuecollection.drop();
     user = name.name;
     await queuecollection.deleteOne( {"name": user} )
-    console.log(name.name);
   
     //  queuecollection.insertOne((name));
   }
@@ -75,5 +80,6 @@ module.exports = {
   deletequestion,
   createUser,
   getUser,
+  getUserByToken,
 
 };

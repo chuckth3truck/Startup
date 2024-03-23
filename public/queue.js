@@ -17,24 +17,34 @@ async function loadqueue() {
     updateTable(queue);
 }
 
-async function deletename(name){
-    try {
-        const response = await fetch('/api/queue', {
-            method: 'delete',
-            headers: {'content-type': 'application/json'},
-            body: JSON.stringify({"name":name}),
-        });
+async function can_modify(){
+    const response = await fetch(`api/user/auth`);
+    if (response.status === 200) {
+        message = await response.json();
+        if (message.msg === "authorized"){
+            return true;
+        }
+        else{
+            return false;
+        }
+        }    
+    return false;
+}
 
-        console.log(response);
+async function deletename(name){
+    const response = await fetch('/api/queue', {
+        method: 'delete',
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify({"name":name}),
+    });
+
+    console.log(response);
     
             
-      } catch {
-        // If there was an error then just use the last saved scores
-        return newqueue
-        }
+      
         }
 
-function updateTable(queue) {
+async function updateTable(queue) {
     // let name = localStorage.getItem("username");
     // let question = JSON.parse(localStorage.getItem(name))["question"];
     // let subject = JSON.parse(localStorage.getItem(name))["subject"];
@@ -56,6 +66,7 @@ function updateTable(queue) {
             subjectEL.textContent = map.subject;
             questionEL.textContent = map.question;
 
+            if (await can_modify()){
             let clicked = false;
             const button = document.createElement("button");
             button.setAttribute("id", "AcceptButton");
@@ -68,7 +79,8 @@ function updateTable(queue) {
                 if (clicked){
                     button.addEventListener("click", () => {
                     rowEL.remove();
-
+                    
+                    can_modify(map.name);
                     deletename(map.name);
 
                     // let newQueue = map;
@@ -90,6 +102,7 @@ function updateTable(queue) {
 
             acceptEL.appendChild(button)
             // addButton()
+        }
 
             const rowEL = document.createElement("tr");
             rowEL.appendChild(nameEL);

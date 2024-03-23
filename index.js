@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt');
 const express = require('express');
 const DB = require('./database.js');
 
+const authCookieName = "token";
 const app = express();
 
 // The service port. In production the front-end code is statically hosted by the service on the same port.
@@ -57,6 +58,19 @@ apiRouter.post('/auth/login', async (req, res) => {
   }
   res.status(401).send({ msg: 'Unauthorized' });
 });
+
+// GetUser returns information about a user
+apiRouter.get('/user/auth', async (req, res) => {
+  authToken = req.cookies[authCookieName];
+  const user = await DB.getUserByToken(authToken);
+  console.log('here')
+  if (user.authourized) {
+    res.status(200).send({msg: "authorized"})
+    return;
+  }
+  res.status(200).send({ msg: 'unauthorized' });
+});
+
 
 // DeleteAuth token if stored in cookie
 apiRouter.delete('/auth/logout', (_req, res) => {
