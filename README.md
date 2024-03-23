@@ -64,3 +64,11 @@ answer question if you are a helper
 * 10% - Your frontend calls third party service endpoints - frontend calls a get random picture api and a chuck norris quote api
 * 20% - Your backend provides service endpoints - backend provides get, post and delete for the queue
 * 20% - Your frontend calls your service endpoints - frontent calls to update the queue, delete from the queue and get the queue
+
+## Login Deliverable
+* 20% - Supports new user registration - can create new account 
+* 20% - Supports existing user authentication - can login to existing account
+* 20% - Stores application data in MongoDB - stores queue data in mongodb
+* 20% - Stores and retrieves credentials in MongoDB - strores user info and creds in mongodb
+* 20% - Restricts application functionality based upon authentication - only certain users are able to accept/decline items in queue
+at the moment the user login info to do this is pass: A, username: A
