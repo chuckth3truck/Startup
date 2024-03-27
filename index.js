@@ -63,7 +63,6 @@ apiRouter.post('/auth/login', async (req, res) => {
 apiRouter.get('/user/auth', async (req, res) => {
   authToken = req.cookies[authCookieName];
   const user = await DB.getUserByToken(authToken);
-  console.log('here')
   if (user.authourized) {
     res.status(200).send({msg: "authorized"})
     return;

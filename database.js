@@ -31,6 +31,7 @@ const config = require('./dbConfig.json');
     return userCollection.findOne({ token: token });
   }
 
+
   async function createUser(email, password) {
     // Hash the password before we insert it into the database
     const passwordHash = await bcrypt.hash(password, 10);

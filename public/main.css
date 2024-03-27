@@ -33,7 +33,7 @@ html {
     border-radius: 15px;
 
     /* background: rgb(29, 28, 66); */
-    width: 20vw;
+    width: 30vw;
 
 
   }
@@ -62,8 +62,8 @@ html {
   
   footer {
     flex: 0 40px;
-    background-color: white;
-    color: black;
+    background-color: black;
+    color: white;
     font-size: 1em;
 
     display: flex;
