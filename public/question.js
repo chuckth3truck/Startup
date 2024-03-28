@@ -1,3 +1,25 @@
+const socket = new WebSocket('ws://localhost:4000');
+
+async function Recieve() {
+    socket.onopen = (event) => {
+        let object = {obj:"here"};
+        socket.send(JSON.stringify(object));
+    };
+    socket.onmessage  = async (event) => {
+      const name = JSON.parse(await event.data.text());
+      const nameEL = document.createElement("h2");
+      nameEL.textContent = name;
+
+
+      const headerEl= document.getElementById("questionbox");
+      headerEl.parentNode.insertBefore(nameEL, headerEl.nextSibling);
+
+      headerEl.style.textAlign = 'center';
+    };
+}
+
+Recieve();
+
 async function storequestion() {
     
         let subject = document.querySelector("#subject").value;

@@ -1,16 +1,9 @@
 const socket = new WebSocket('ws://localhost:4000');
 
-
-async function sendRecieve() {
-    socket.onopen = (event) => {
-        socket.send("here")
-    };
-    socket.onmessage  = (event) => {
-        console.log('received: ', event.data);
-    };
+function Send(name) {
+    let object = {name:name};
+    socket.send(JSON.stringify(object));
 }
-
-sendRecieve();
 
 async function loadqueue() {
     let queue = {};
@@ -50,20 +43,10 @@ async function deletename(name){
         method: 'delete',
         headers: {'content-type': 'application/json'},
         body: JSON.stringify({"name":name}),
-    });
-
-    console.log(response);
-    
-            
-      
+    });    
         }
 
 async function updateTable(queue) {
-    // let name = localStorage.getItem("username");
-    // let question = JSON.parse(localStorage.getItem(name))["question"];
-    // let subject = JSON.parse(localStorage.getItem(name))["subject"];
-
-    
     const tableElement = document.querySelector("#queue");
 
     if (Object.keys(queue).length){
@@ -89,6 +72,7 @@ async function updateTable(queue) {
                 button.style["background-color"] = "red";
                 button.textContent = "DONE";
                 clicked = true;
+                Send(map.name);
 
                 if (clicked){
                     button.addEventListener("click", () => {
@@ -96,26 +80,11 @@ async function updateTable(queue) {
                     
                     can_modify(map.name);
                     deletename(map.name);
-
-                    // let newQueue = map;
-
-                    // newQueue = Object.keys(newQueue).filter(objKey =>
-                    //     objKey !== map.name).reduce((newObj, key) =>
-                    //     {
-                    //         newObj[key] = newQueue[key];
-                    //         return newObj;
-                    //     }, {}
-                    // );
-                    // console.log(newQueue);
-                    // ret = deletename(newQueue);
-                    }) 
-                    
+                    })                    
                 }
             })
             
-
             acceptEL.appendChild(button)
-            // addButton()
         }
 
             const rowEL = document.createElement("tr");
@@ -125,12 +94,8 @@ async function updateTable(queue) {
             rowEL.appendChild(acceptEL);
 
             tableElement.appendChild(rowEL);
-
-            
-
         }
     }
-
 }
 
 function activateQueue() {
