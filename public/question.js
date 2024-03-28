@@ -6,15 +6,18 @@ async function Recieve() {
         socket.send(JSON.stringify(object));
     };
     socket.onmessage  = async (event) => {
-      const name = JSON.parse(await event.data.text());
+      console.log(JSON.parse(await event.data.text()))
+      const name = await event.data.text().name;
       const nameEL = document.createElement("h2");
-      nameEL.textContent = name;
-
+      nameEL.textContent = `${name} is currently being helped`;
 
       const headerEl= document.getElementById("questionbox");
       headerEl.parentNode.insertBefore(nameEL, headerEl.nextSibling);
 
       headerEl.style.textAlign = 'center';
+      setTimeout(() => {
+        nameEL.remove();
+    }, 3000);
     };
 }
 
