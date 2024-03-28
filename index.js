@@ -2,6 +2,7 @@ const cookieParser = require('cookie-parser');
 const bcrypt = require('bcrypt');
 const express = require('express');
 const DB = require('./database.js');
+const { peerProxy } = require('./websocket.js');
 
 const authCookieName = "token";
 const app = express();
@@ -131,6 +132,8 @@ app.use((_req, res) => {
   res.sendFile('index.html', { root: __dirname+'/public' });
 });
 
-app.listen(port, () => {
+const httpService = app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
+
+peerProxy(httpService);

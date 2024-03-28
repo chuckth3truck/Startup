@@ -1,3 +1,17 @@
+const socket = new WebSocket('ws://localhost:4000');
+
+
+async function sendRecieve() {
+    socket.onopen = (event) => {
+        socket.send("here")
+    };
+    socket.onmessage  = (event) => {
+        console.log('received: ', event.data);
+    };
+}
+
+sendRecieve();
+
 async function loadqueue() {
     let queue = {};
     try {

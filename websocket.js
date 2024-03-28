@@ -12,7 +12,7 @@ function peerProxy(httpServer) {
     });
   });
 
-  // Keep track of all the connections so we can forward messages
+//   Keep track of all the connections so we can forward messages
   let connections = [];
 
   wss.on('connection', (ws) => {
@@ -22,9 +22,9 @@ function peerProxy(httpServer) {
     // Forward messages to everyone except the sender
     ws.on('message', function message(data) {
       connections.forEach((c) => {
-        if (c.id !== connection.id) {
+        
           c.ws.send(data);
-        }
+        
       });
     });
 
