@@ -72,3 +72,9 @@ answer question if you are a helper
 * 20% - Stores and retrieves credentials in MongoDB - strores user info and creds in mongodb
 * 20% - Restricts application functionality based upon authentication - only certain users are able to accept/decline items in queue
 at the moment the user login info to do this is pass: A, username: A
+
+## Websocket Deliverable
+* 20% - Backend listens for WebSocket connection - listens for and makes connection with all clients.
+* 20% - Frontend makes WebSocket connection - front end connects to websocket.
+* 30% - Data sent over WebSocket connection - message sent to every client when someone is accepted in the queue and when someone is done. also whenever a question/person is added to the queue and message is sent through websocket to every client to update the queue. 
+* 30% - WebSocket data displayed in the application interface - message sent about other clients is displayed on question paige.
