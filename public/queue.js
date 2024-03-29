@@ -1,5 +1,13 @@
 const socket = new WebSocket('ws://localhost:4000');
 
+socket.onmessage  = async (event) => {
+    let obj = JSON.parse(await event.data.text());
+    console.log(obj.refresh);
+    if (obj.refresh){
+        window.location.reload();
+    }
+}
+
 function Send(name, clicked) {
     let object = {
         name:name,
@@ -9,6 +17,7 @@ function Send(name, clicked) {
 }
 
 async function loadqueue() {
+
     let queue = {};
     try {
         // Get the latest high scores from the service
@@ -26,6 +35,7 @@ async function loadqueue() {
       }
     updateTable(queue);
 }
+
 
 async function can_modify(){
     const response = await fetch(`api/user/auth`);

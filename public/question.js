@@ -2,7 +2,8 @@ const socket = new WebSocket('ws://localhost:4000');
 
 async function Recieve() {
     socket.onopen = (event) => {
-        socket.send("I AM");
+      let obj = {connected:true};
+        socket.send(JSON.stringify(obj));
     };
     socket.onmessage  = async (event) => {
       let obj = JSON.parse(await event.data.text())
@@ -33,39 +34,41 @@ Recieve();
 
 async function storequestion() {
     
-        let subject = document.querySelector("#subject").value;
-        let question =  document.querySelector("#question").value;
-        let name = localStorage.getItem("username");
+    let subject = document.querySelector("#subject").value;
+    let question =  document.querySelector("#question").value;
+    let name = localStorage.getItem("username");
 
-        let dct = {
-            'name': name,
-            "subject": subject,
-            "question": question
-        }
+    let dct = {
+        'name': name,
+        "subject": subject,
+        "question": question
+    }
 
-        // let queue = {};
-        // queue[name] = dct
+    // let queue = {};
+    // queue[name] = dct
 
-        try {
-            const response = await fetch('/api/queue', {
-                method: 'POST',
-                headers: {'content-type': 'application/json'},
-                body: JSON.stringify(dct),
-            });
+    try {
+        const response = await fetch('/api/queue', {
+            method: 'POST',
+            headers: {'content-type': 'application/json'},
+            body: JSON.stringify(dct),
+        });
 
-            console.log(response);
-        
-                
-          } catch {
-            const queueMap = localStorage.getItem("queue");
-            if (queueMap){
-                queue = JSON.parse(queueMap);
-                localStorage.setItem("queue", JSON.stringify(queue))
-            }
-            }
-
-
-        window.location.href = "queue.html";
+        console.log(response);
+    
+            
+      } catch {
+        const queueMap = localStorage.getItem("queue");
+        if (queueMap){
+            queue = JSON.parse(queueMap);
+            localStorage.setItem("queue", JSON.stringify(queue))
+      }
+      }
+      let object = {
+        refresh:true,
+      };
+      socket.send(JSON.stringify(object));
+  
 
 }
 
