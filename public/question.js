@@ -2,22 +2,30 @@ const socket = new WebSocket('ws://localhost:4000');
 
 async function Recieve() {
     socket.onopen = (event) => {
-        let object = {obj:"here"};
-        socket.send(JSON.stringify(object));
+        socket.send("I AM");
     };
     socket.onmessage  = async (event) => {
-      console.log(JSON.parse(await event.data.text()))
-      const name = await event.data.text().name;
-      const nameEL = document.createElement("h2");
-      nameEL.textContent = `${name} is currently being helped`;
+      let obj = JSON.parse(await event.data.text())
+      if (obj.name){
+        console.log(obj.name)
 
-      const headerEl= document.getElementById("questionbox");
-      headerEl.parentNode.insertBefore(nameEL, headerEl.nextSibling);
+        const name = obj.name;
+        const nameEL = document.createElement("h2");
+        const headerEl= document.getElementById("questionbox");
+        headerEl.parentNode.insertBefore(nameEL, headerEl.nextSibling);
+        headerEl.style.textAlign = 'center';
+        
+        if (!obj.clicked){
+        nameEL.textContent = `${name} is currently being helped`;
+        }
+        else{
+          nameEL.textContent = `${name} is Done being helped`;
+        }
 
-      headerEl.style.textAlign = 'center';
-      setTimeout(() => {
-        nameEL.remove();
-    }, 3000);
+        setTimeout(() => {
+          nameEL.remove();
+        }, 3000);
+  }
     };
 }
 

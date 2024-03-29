@@ -1,7 +1,10 @@
 const socket = new WebSocket('ws://localhost:4000');
 
-function Send(name) {
-    let object = {name:name};
+function Send(name, clicked) {
+    let object = {
+        name:name,
+        clicked:clicked
+    };
     socket.send(JSON.stringify(object));
 }
 
@@ -71,8 +74,9 @@ async function updateTable(queue) {
             button.addEventListener("click", () => {
                 button.style["background-color"] = "red";
                 button.textContent = "DONE";
+            
+                Send(map.name, clicked);
                 clicked = true;
-                Send(map.name);
 
                 if (clicked){
                     button.addEventListener("click", () => {
