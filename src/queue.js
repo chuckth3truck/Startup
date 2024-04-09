@@ -1,4 +1,5 @@
-const socket = new WebSocket('ws://localhost:4000');
+const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+const socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
 
 socket.onmessage  = async (event) => {
     let obj = JSON.parse(await event.data.text());

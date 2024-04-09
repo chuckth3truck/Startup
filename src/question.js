@@ -1,10 +1,12 @@
-const socket = new WebSocket('ws://localhost:4000');
+const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+const socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
 
 async function Recieve() {
     socket.onopen = (event) => {
       let obj = {connected:true};
         socket.send(JSON.stringify(obj));
     };
+
     socket.onmessage  = async (event) => {
       let obj = JSON.parse(await event.data.text())
       if (obj.name){
@@ -18,17 +20,12 @@ async function Recieve() {
         
         if (!obj.clicked){
         nameEL.textContent = `${name} is currently being helped`;
-        }
-        else{
-          nameEL.textContent = `${name} is Done being helped`;
-        }
+        }else
+        {nameEL.textContent = `${name} is Done being helped`;}
 
         setTimeout(() => {
           nameEL.remove();
-        }, 3000);
-  }
-    };
-}
+        }, 3000);}};}
 
 Recieve();
 
