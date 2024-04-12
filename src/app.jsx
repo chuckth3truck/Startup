@@ -2,9 +2,9 @@ import React from 'react';
 import './app.css';
 
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
-import { Login } from './login/login';
-import { Question } from './question/question';
-import { Queue } from './queue/queue';
+import { Login } from './login/login.jsx';
+import { Question } from './question/question.jsx';
+import { Queue } from './queue/queue.jsx';
 
 
 function App() {

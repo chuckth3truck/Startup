@@ -3,7 +3,7 @@
     margin: 40px;
     padding: 20px;
     background-color: #002E5D;
-
+    
     text-align: center;
 
     border-radius: 20px;
@@ -15,7 +15,9 @@
     /* background-color: rgb(183, 183, 183); */
     margin: 20px;
     border-radius: 100px;
-    /* box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3); */ 
+    width: 90vw;
+    height: 71vh;
+    /* box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);  */
 }
 label{
     /* background-color: white; */
@@ -23,6 +25,7 @@ label{
     font: large;
     font-family: fantasy;
     border-radius: 10px;
+    margin: 10px;
 }
 button:hover{
     transition: .5s;

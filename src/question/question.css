@@ -23,3 +23,22 @@ button:hover{
 
   }
 
+p {
+    margin:5px;
+}
+
+p.subject-text{
+    font-size: .8em;
+    font-family: fantasy;
+}
+
+p.Question-text {
+    font-family: fantasy;
+    font-size: 1.1em;
+}
+
+
+textarea{
+    height: 15vh;
+}
+

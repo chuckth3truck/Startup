@@ -1,11 +1,19 @@
   .body {
     margin: 0;
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     height: 100%;
 
     /* overflow-y:scroll; */
   }
+
+body {
+  margin: 0;
+  /* margin: 0; */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
 
   header {
     flex: 0 40px;
@@ -34,7 +42,7 @@
   }
 
   div{
-    font-size: 1.5em;
+    font-size: 1.3em;
   }
 
 
@@ -42,7 +50,7 @@
     text-align: start;
     color: white;
     font-family: fantasy;
-    font-size: 3em;
+    font-size: 1.3em;
     margin: 0px;
   }
 
@@ -59,13 +67,13 @@
     flex: 0 40px;
     background-color: black;
     color: white;
-    font-size: 1em;
+    font-size: .9em;
 
     display: flex;
     flex-direction: column;
     /* justify-content: left; */
     align-items: center;
-    height: 100vh;
+    /* height: 10vh; */
   }
 footer.a{
   color: black;
@@ -75,7 +83,7 @@ a, .nav-link{
     color: white;
     text-decoration: none;
     font-family: fantasy;
-    font-size: 1em;
+    font-size: .8em;
     padding: 4px 8px; 
     border-radius: 20px;   
 }
@@ -95,8 +103,6 @@ img{
   margin: 20px;
   width: 40vh;
   box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.3);
-
-  
 }
 
 button{
