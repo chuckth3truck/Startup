@@ -32,29 +32,33 @@ function checkcreds(name, pass) {
 async function createaccount(){
   const nameEL = document.querySelector("#name");
   const passEL = document.querySelector("#password");
+  // console.log("here")
+
 
   // const navigate = useNavigate();
 
   if (checkcreds(nameEL,passEL)){
 
-     dct = {
+     let dct = {
           "email":nameEL.value,
           "password":passEL.value,
       }
   
-          const response = await fetch('/api/auth/create', {
-              method: 'POST',
-              headers: {'content-type': 'application/json'},
-              body: JSON.stringify(dct),
-          });
-  
-          console.log(response);
+      const response = await fetch('/api/auth/create', {
+          method: 'POST',
+          headers: {'content-type': 'application/json'},
+          body: JSON.stringify(dct),
+      });
 
-          if (response.ok) {
-              localStorage.setItem('username', nameEL.value);
-              return 
-              // navigate("/question")
+      console.log(response);
+
+      if (response.ok) {
+          localStorage.setItem('username', nameEL.value);
+          window.location.href = '/question';
+          return true
+          // navigate("/question")
       }
+      return false
 
   }   
 
@@ -67,10 +71,13 @@ async function userLogin(){
 
   if (checkcreds(nameEL,passEL)){
 
+
+
       let dct = {
           "email":nameEL.value,
           "password":passEL.value,
       }
+
 
       const response = await fetch('/api/auth/login', {
           method: 'POST',
@@ -82,12 +89,17 @@ async function userLogin(){
 
       if (response.ok) {
           localStorage.setItem('username',nameEL.value);
+          window.location.href = '/question';
           return true;
-          // navigate("/question")
+          
   }
+      else{
+        return false
+    }
 
 
 }
+return false
 }
 
 export function Login() {
@@ -105,14 +117,11 @@ export function Login() {
                 <label>Password</label>
                 <input type="text" id="password" placeholder="Password" />
                 <button type="submit" onClick={() => {
-                  if(userLogin()){
-                    navigate("/question")
-
-                  }}} >Login</button>
+                    userLogin();
+                  }} >Login</button>
                 <button type="submit" onClick={() => {
-                  if(createaccount()){
-                    navigate("/question")
-                  }}}>Create Account</button>
+                  createaccount();
+                  }}>Create Account</button>
             
             </div>
         </div>

@@ -89,8 +89,6 @@ export function Question() {
       });
   }, []);
 
-  Recieve();
-
 
   return (
         <main>

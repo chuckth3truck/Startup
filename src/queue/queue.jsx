@@ -75,7 +75,7 @@ export function Queue() {
             <td>{map.question}</td>
             <td><button type="submit" onClick={() => {
               can_modify(map.name)
-              setQueue(queue)
+              // setQueue(queue)
               }} >Action</button></td>
           </tr>
         );
@@ -152,7 +152,7 @@ export function Queue() {
         <hr/>
 
         <div id="picture"></div>
-        <DisplayPicture/>
+        {DisplayPicture()}
     </main>
   );
 }
