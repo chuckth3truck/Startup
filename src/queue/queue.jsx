@@ -4,27 +4,37 @@ import "./queue.css"
 const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
 const socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
 
-
-async function CanModify(name){
-
-  const [clicked, setClicked] = React.useState(false);
-
-  const response = await fetch(`api/user/auth`);
-    if (response.status === 200) {
-        message = await response.json();
-        if (message.msg === "authorized"){
-            setClicked(true);
-        }
-      }
+function Send(name, clicked) {
+  let object = {
+      name:name,
+      clicked:clicked
+  };
+  socket.send(JSON.stringify(object));
 }
 
-async function deleteName(name){
+async function can_modify(name){
+  const response = await fetch(`api/user/auth`);
+  if (response.status === 200) {
+      let message = await response.json();
+      if (message.msg === "authorized"){
+          Send(name, true);
+          deletename(name);
+      }
+      else{
+          return false;
+      }
+      }    
+  return false;
+}
+
+async function deletename(name){
   const response = await fetch('/api/queue', {
       method: 'delete',
       headers: {'content-type': 'application/json'},
       body: JSON.stringify({"name":name}),
   });    
       }
+
 
 export function Queue() {
   const [queue, setQueue] = React.useState([]);
@@ -37,8 +47,6 @@ export function Queue() {
     }
 }
 
-  // Demonstrates calling a service asynchronously so that
-  // React can properly update state objects with the results.
   React.useEffect(() => {
     fetch('/api/queue')
       .then((response) => response.json())
@@ -55,7 +63,7 @@ export function Queue() {
       });
   }, []);
 
-  // Demonstrates rendering an array with React
+
   const queueRows = [];
   if (queue.length) {
     for (const [i, map] of queue.entries()) {
@@ -65,7 +73,10 @@ export function Queue() {
             <td>{map.name}</td>
             <td>{map.subject}</td>
             <td>{map.question}</td>
-            <td>Accept</td>
+            <td><button type="submit" onClick={() => {
+              can_modify(map.name)
+              setQueue(queue)
+              }} >Action</button></td>
           </tr>
         );
       }
@@ -141,8 +152,26 @@ export function Queue() {
         <hr/>
 
         <div id="picture"></div>
+        <DisplayPicture/>
     </main>
   );
+}
+
+function DisplayPicture() {
+  const random = Math.floor(Math.random() * 1000);
+  fetch(`https://picsum.photos/v2/list?page=${random}&limit=1`)
+    .then((response) => response.json())
+    .then((data) => {
+      const containerEl = document.querySelector('#picture');
+
+      const width = containerEl.offsetWidth;
+      const height = containerEl.offsetHeight;
+
+      const imgUrl = `https://picsum.photos/id/${data[0].id}/${width}/${height}`;
+      const imgEl = document.createElement('img');
+      imgEl.setAttribute('src', imgUrl);
+      containerEl.appendChild(imgEl);
+    });
 }
 
 // function queue() {

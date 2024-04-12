@@ -96,6 +96,7 @@ export function Question() {
         <main>
 
         <h1 id="user">You Have Questions We Have Answers</h1>
+        <h3>{localStorage.getItem("username")}</h3>
         <div className="question-box" id="questionbox">
         <p className='subject-text'>Subject </p>
         <input type="text" id="subject" name="varText" placeholder="" required pattern="[Aa].*" />

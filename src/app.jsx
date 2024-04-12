@@ -1,5 +1,6 @@
 import React from 'react';
 import './app.css';
+import { useNavigate } from 'react-router-dom';
 
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { Login } from './login/login.jsx';
@@ -8,6 +9,7 @@ import { Queue } from './queue/queue.jsx';
 
 
 function logout(){
+  
   localStorage.removeItem('username');
   fetch(`/api/auth/logout`, {
   method: 'delete',
