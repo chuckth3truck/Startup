@@ -42,3 +42,6 @@ textarea{
     height: 15vh;
 }
 
+#quotearea{
+    text-align: center;
+}

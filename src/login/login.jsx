@@ -1,7 +1,98 @@
 import React from 'react';
 import "./login.css"
 
+import { useNavigate } from 'react-router-dom';
+
+function checkcreds(name, pass) {
+  if (!name.value | !pass.value){
+      const ErrorEL = document.createElement("h2");
+
+
+      if (!name.value){
+          ErrorEL.textContent = "You Need a UserName";
+      }
+      else{
+          ErrorEL.textContent = "You Need a Password";
+      }
+
+      const headerEl= document.getElementById("loginBox");
+      headerEl.parentNode.insertBefore(ErrorEL, headerEl.nextSibling);
+
+      headerEl.style.textAlign = 'center';
+      setTimeout(() => {
+          ErrorEL.remove()
+      }, 1000);
+
+      return false;
+      
+  }
+  else{return true};
+}
+
+async function createaccount(){
+  const nameEL = document.querySelector("#name");
+  const passEL = document.querySelector("#password");
+
+  // const navigate = useNavigate();
+
+  if (checkcreds(nameEL,passEL)){
+
+     dct = {
+          "email":nameEL.value,
+          "password":passEL.value,
+      }
+  
+          const response = await fetch('/api/auth/create', {
+              method: 'POST',
+              headers: {'content-type': 'application/json'},
+              body: JSON.stringify(dct),
+          });
+  
+          console.log(response);
+
+          if (response.ok) {
+              localStorage.setItem('username', nameEL.value);
+              return 
+              // navigate("/question")
+      }
+
+  }   
+
+  }
+
+async function userLogin(){
+  const nameEL = document.querySelector("#name");
+  const passEL = document.querySelector("#password");
+
+
+  if (checkcreds(nameEL,passEL)){
+
+      let dct = {
+          "email":nameEL.value,
+          "password":passEL.value,
+      }
+
+      const response = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: {'content-type': 'application/json'},
+          body: JSON.stringify(dct),
+      });
+
+      console.log(response);
+
+      if (response.ok) {
+          localStorage.setItem('username',nameEL.value);
+          return true;
+          // navigate("/question")
+  }
+
+
+}
+}
+
 export function Login() {
+  const navigate = useNavigate();
+
   return (
       <main>
         <div className="login-border" id="loginBox">
@@ -13,8 +104,15 @@ export function Login() {
                 <input type = "text" id="name" placeholder="Username" />
                 <label>Password</label>
                 <input type="text" id="password" placeholder="Password" />
-                <button type="submit" onclick="login()">Login</button>
-                <button type="submit" onclick="createaccount()">Create Account</button>
+                <button type="submit" onClick={() => {
+                  if(userLogin()){
+                    navigate("/question")
+
+                  }}} >Login</button>
+                <button type="submit" onClick={() => {
+                  if(createaccount()){
+                    navigate("/question")
+                  }}}>Create Account</button>
             
             </div>
         </div>

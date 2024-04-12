@@ -7,6 +7,14 @@ import { Question } from './question/question.jsx';
 import { Queue } from './queue/queue.jsx';
 
 
+function logout(){
+  localStorage.removeItem('username');
+  fetch(`/api/auth/logout`, {
+  method: 'delete',
+  }).then(() => (window.location.href = '/'));
+
+}
+
 function App() {
   return (
     <BrowserRouter>
@@ -18,7 +26,7 @@ function App() {
             <div className="menu-items">
                 <NavLink className='nav-link' to='question'>Ask A Question</NavLink>
                 <NavLink className='nav-link' to='queue'>Queue</NavLink>
-                <button type="submit" onclick="logout()">Logout</button>
+                <button type="submit" onClick = {() => logout()} >Logout</button>
             </div>
         </nav>
     </header>
