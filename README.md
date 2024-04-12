@@ -109,3 +109,13 @@ answer question if you are a helper
     * whenever a question/person is added to the queue and message is sent through websocket to every client to refresh the queue paige. 
 * 30% - WebSocket data displayed in the application interface
     * message sent about other clients is displayed on question paige.
+
+## React Deliverable
+* 10% - Bundled using Vite
+    * application uses vite to bundle components to browser
+* 30% - Multiple functional react components
+    * application has App, Login, question, and queue components
+* 30% - React router
+    * application uses router so only one HTML paige is used with components being routed in
+* 30% - React hooks
+    * queue and chuck norris quote uses hooks and state variables. 
